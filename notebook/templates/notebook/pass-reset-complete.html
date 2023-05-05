@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Password Reset
+{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static "notebook/pass-reset-confirm.css" %}">
+{% endblock %}
+
+{% block content %}
+
+{% if form.errors %}
+  <div id="alert">
+    <h2>Failed to Reset!</h2>
+    <p>Not a valid Email</p>
+  </div>
+{% endif %}
+
+    <section id="login-form">
+        Your password has been set. You may go ahead and <a href="{% url 'login-page' %}">Login Here</a>
+    </section>
+
+{% endblock %}

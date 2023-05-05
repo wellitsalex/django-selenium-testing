@@ -1,0 +1,39 @@
+#desc-div {
+  margin-top: 8rem;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 1.5rem;
+  width: 90%;
+  max-width: 40rem;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  padding: 1rem;
+}
+
+#button-div {
+  margin: auto;
+  width: fit-content;
+  max-width: 25rem;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  padding: 0.5rem;
+}
+
+.setup-button {
+  background-color: rgb(65, 65, 203);
+  border: 1px solid white;
+  padding: 0.5rem 2rem;
+  font: inherit;
+  color: white;
+  cursor: pointer;
+  margin: 1rem;
+  border-radius: 6px;
+}
+  
+.setup-button:hover,
+.setup-button:active {
+  background-color: rgb(105, 105, 253);
+  color: #150c21;
+}

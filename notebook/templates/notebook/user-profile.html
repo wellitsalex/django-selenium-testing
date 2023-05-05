@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+{{ user.username }}'s Profile
+{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static "notebook/user-profile.css" %}">
+{% endblock %}
+
+{% block content %}
+
+<section id="welcome-section">
+    <h1>Edit your Profile:</h1>
+</section>
+
+{% if login_form.errors %}
+  <div id="alert">
+    <h2>Failed to Save Changes!</h2>
+  </div>
+{% endif %}
+
+    <section id="login-form">
+        <form id="realForm" enctype="multipart/form-data" action="" method="POST">
+            {% csrf_token %}
+            {% for form_field in user_profile_form %}
+                <div id="{{form_field.name}}" class="form-control {% if form_field.errors %}invalid{% endif %}">
+                    {% if form_field.name == "user_image"%}
+                        {% if user_image %}
+                            <img id="currImage" src={{user_image.url}} />
+                        {% endif %}
+                    {% endif %}
+                    {{ form_field.label_tag }}
+                    {{ form_field }}
+                    {{ form_field.errors }}
+                </div>
+            {% endfor %}
+            {% for form_field in user_form %}
+                <div id="{{form_field.name}}" class="form-control {% if form_field.errors %}invalid{% endif %}">
+                    {{ form_field.label_tag }}
+                    {{ form_field }}
+                    {{ form_field.errors }}
+                </div>
+            {% endfor %}
+            <button>Save</button>
+        </form>
+    </section>
+
+{% endblock %}

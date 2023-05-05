@@ -1,0 +1,29 @@
+{% load static %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static "notebook/edit-note.css" %}">
+{% endblock %}
+
+{% block content %}
+
+{% include "notebook/dashboard.html" %}
+
+    <section id="note-editor">
+        <form action="" method=POST>
+            {% csrf_token %}
+            {% for form_field in edit_form %}
+                <div class="form-control {% if form_field.errors %}invalid{% endif %}">
+                    {{ form_field.label_tag }}
+                    {{ form_field }}
+                    {{ form_field.errors }}
+                </div>
+            {% endfor %}
+            <button id="saveButton" class="setup-button">Save</button>
+        </form>
+        {% if note_slug %}
+        <a href="{% url 'delete-note-page' note_slug %}">
+            <button id="deleteButton" class="setup-button">Delete</button>
+        </a>
+        {% endif %}
+    </section>
+{% endblock %}

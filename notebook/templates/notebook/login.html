@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Login to NoteBook!
+{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static "notebook/login.css" %}">
+{% endblock %}
+
+{% block content %}
+
+{% if login_form.errors %}
+  <div id="alert">
+    <h2>Failed to Login!</h2>
+    <p>Incorrect Username or Password</p>
+  </div>
+{% endif %}
+
+    <section id="login-form">
+        <h2>Welcome Back!</h2>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {% for form_field in login_form %}
+                <div class="form-control {% if form_field.errors %}invalid{% endif %}">
+                    {{ form_field.label_tag }}
+                    {{ form_field }}
+                    {{ form_field.errors }}
+                </div>
+            {% endfor %}
+            <button>Log in</button>
+        </form>
+        <a id="forgor" href="{% url "password_reset" %}">Forgot Password?</a>
+        <h3 class="oopsie">Don't have an account yet?</h3>
+        <a href="{% url "register-page" %}"><button class="oopsie">Sign up</button>
+    </section>
+
+{% endblock %}

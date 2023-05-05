@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+{{ user.username }}'s Dashboard
+{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static "notebook/dashboard.css" %}">
+{% endblock %}
+
+{% block content %}
+
+<section id="welcome-section">
+  {% if display_name %}
+    <h1>Welcome {{display_name}}</h1>
+  {% else %}
+    <h1>Welcome {{user.username}}</h1>
+  {% endif %}
+  {% if  user_image %}
+    <img id="user_image" src={{user_image.url}} />
+  {% endif %}
+</section>
+
+<div id="buttonDiv">
+  <a href="{% url 'add-note-page' %}">
+    <button class="setup-button">New Note</button>
+  </a>
+</div>
+
+<section id="existing-notes">
+    <ul>
+        {% for note in user_notes %}
+          <li>
+            <h2>
+                <a href="{% url 'edit-note-page' note.slug %}">
+                    {{ note.title }}
+                </a>
+            </h2>
+            <p>{{ note.date }}</p>
+          </li>
+        {% endfor %}
+      </ul>
+</section>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Password Reset
+{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static "notebook/pass-reset.css" %}">
+{% endblock %}
+
+{% block content %}
+
+{% if form.errors %}
+  <div id="alert">
+    <h2>Failed to Reset!</h2>
+    <p>Not a valid Email</p>
+  </div>
+{% endif %}
+
+    <section id="login-form">
+        <h2>Reset your password</h2>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {% for form_field in form %}
+                <div class="form-control {% if form_field.errors %}invalid{% endif %}">
+                    {{ form_field.label_tag }}
+                    {{ form_field }}
+                    {{ form_field.errors }}
+                </div>
+            {% endfor %}
+            <button>Reset</button>
+        </form>
+    </section>
+
+{% endblock %}

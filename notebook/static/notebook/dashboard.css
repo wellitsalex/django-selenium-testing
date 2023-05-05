@@ -1,0 +1,55 @@
+#welcome-section {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: 2rem;
+    top: 5rem;
+}
+
+#existing-notes {
+    position: absolute;
+    display: block;
+    left: 1.5rem;
+    top: 10rem;
+    margin: 5rem auto;
+    width: 90%;
+    max-width: 25rem;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    padding: 1rem;
+}
+
+.setup-button {
+    background-color: rgb(65, 65, 203);
+    border: 1px solid white;
+    padding: 0.5rem 2rem;
+    font: inherit;
+    color: white;
+    cursor: pointer;
+    margin: 1rem;
+    border-radius: 6px;
+}
+
+.setup-button:hover,
+.setup-button:active {
+    background-color: rgb(105, 105, 253);
+    color: #150c21;
+}
+
+#buttonDiv {
+    position: absolute;
+    display: block;
+    top: 5rem;
+    left: 1.5rem;
+    margin: 5rem auto;
+}
+
+#user_image {
+    position: relative;
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    left: 1rem;
+}

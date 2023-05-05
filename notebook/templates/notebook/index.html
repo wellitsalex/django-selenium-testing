@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Welcome to NoteBook!
+{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static "notebook/index.css" %}">
+{% endblock %}
+
+{% block content %}
+    <div id="desc-div">
+        <h2>Welcome to NoteBook, to get started login or register!</h2>
+        <p>NoteBook is a place to read, write and share notes.</p>
+    </div>
+
+    <div id="button-div">
+        <a href="{% url "login-page" %}"><button class="setup-button">Login!</button></a>
+        <a href="{% url "register-page" %}"><button class="setup-button">Register!</button></a>
+    </div>
+
+{% endblock %}

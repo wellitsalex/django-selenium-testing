@@ -1,0 +1,55 @@
+#existing-notes  a {
+    color: red;
+}
+
+#note-editor {
+    position: absolute;
+    display: block;
+    margin: 5rem auto;
+    left: 28rem;
+    top: 10rem;
+    max-width: 50rem;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    padding: 1rem;
+}
+
+label,
+textarea {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+textarea {
+    padding: 10px;
+    max-width: 100%;
+    line-height: 1.5;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px #999;
+    color: black;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#saveButton {
+    position: relative;
+    top: 1rem;
+}
+
+#deleteButton {
+    position: absolute;
+    right: 2rem;
+    bottom: 1rem;
+    background-color: rgb(203, 81, 65);
+}
+
+#deleteButton:hover,
+#deleteButton:active {
+    background-color: rgb(239, 131, 116);
+    color: #08040c;
+}

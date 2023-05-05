@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Register for NoteBook!
+{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static "notebook/register.css" %}">
+{% endblock %}
+
+{% block content %}
+
+{% if register_form.errors %}
+  <div id="alert">
+    <h2>Failed to register!</h2>
+    <p>Please check the form below the post and fix your errors.</p>
+  </div>
+{% endif %}
+
+    <section id="register-form">
+        <h2> Sign up </h2>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {% for form_field in register_form %}
+                <div class="form-control {% if form_field.errors %}invalid{% endif %}">
+                    {{ form_field.label_tag }}
+                    {{ form_field }}
+                    {{ form_field.errors }}
+                </div>
+            {% endfor %}
+            <button>Sign up</button>
+        </form>
+    </section>
+
+{% endblock %}
